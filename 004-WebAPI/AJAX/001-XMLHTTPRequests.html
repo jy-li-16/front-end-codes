@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">发请求</button>
+    <script>
+        // 获取按钮的DOM对象
+        let btn = document.getElementById("btn")
+        // 监听按钮的点击事件
+        btn.onclick = function() {
+            console.log("按钮被点击了")
+            const xhr = new XMLHttpRequest();
+
+            // 回调 - 函数
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState === 0) {
+                    console.log('xhr.readyState === 0 请求未初始化')
+                }
+                if(xhr.readyState === 1) {
+                    console.log('xhr.readyState === 1 服务器已建立连接')
+                }
+                if(xhr.readyState === 2) {
+                    console.log('xhr.readyState === 2 请求已接收')
+                }
+                if(xhr.readyState === 3) {
+                    console.log('xhr.readyState === 3 请求处理中')
+                } 
+                if(xhr.readyState === 4) {
+                    console.log('xhr.readyState === 4 请求已完成，且响应已就绪')
+                    if(xhr.status === 200) {
+                        // 请求成功
+                        console.log("异步响应结果", xhr.responseText)
+                    }
+                }
+            }
+
+            // 与服务器建立连接
+            xhr.open('GET', 'http://127.0.0.1:8080/hello')
+            /*
+            xhr.open:
+                第一个参数：发请求的方式（GET、POST、PUT、DELETE、HEAD、OPTION。。。）
+                第二个参数：请求的接口地址
+                第三个参数：是否异步（默认为true）
+            */
+
+            console.log(111111)
+            xhr.send() // 发请求
+            // xhr.responseText 响应结果内容
+            // console.log('响应结果', xhr.responseText)
+            console.log(222222)
+        }
+    </script>
+</body>
+</html>
