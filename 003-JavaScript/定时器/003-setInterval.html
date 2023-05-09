@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            position: absolute;
+            top: 60px;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+    <button id="start">开始</button>
+    <button id="stop">停止</button>
+    <div id="box"></div>
+
+    <script>
+        function $id(id) {
+            return document.getElementById(id)
+        }
+
+        let timerId = null;
+        let left = 0;
+        let step = 5;
+
+        $id('start').onclick = function() {
+            console.log('开始')
+            if(timerId) {
+                alert("定时器已开启，不要重复开始")
+                return;
+            }
+            timerId = setInterval(function() {
+                left += step;
+                if(left + 200 >= document.body.clientWidth || left <= 0) {
+                    step = -step;
+                }
+                $id('box').style.left = left + 'px'
+            }, 10)
+        }
+
+        $id('stop').onclick = function() {
+            console.log('停止')
+            if(timerId === null) {
+                alert("定时器已停止，不能再次停止")
+                return;
+            }
+            clearInterval(timerId)
+            timerId = null
+        }
+
+    </script>
+</body> 
+</html>

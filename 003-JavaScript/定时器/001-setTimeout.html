@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="start">五秒后执行</button>
+    <button id="cancel">取消所有定时器执行</button>
+    <script>
+
+        // 获取执行button
+        let start = document.getElementById("start")
+        let cancel = document.getElementById("cancel")
+
+        let timerIdArray = []
+
+        start.onclick = function () {
+            console.log("点击执行按钮")
+
+            // 指定时间后执行指定函数，执行一次
+            let timerId = setTimeout(function () {
+                console.log("hello world")
+            }, 5000)
+            timerIdArray.push(timerId)
+            console.log("timerId", timerId)
+        }
+
+        cancel.onclick = function () {
+            console.log("点击取消按钮")
+            for (let i = 0; i < timerIdArray.length; i++) {
+                clearTimeout(timerIdArray[i])
+            }
+            timerIdArray = []
+        }
+
+
+    </script>
+</body>
+
+</html>
