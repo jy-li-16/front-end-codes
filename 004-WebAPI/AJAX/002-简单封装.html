@@ -10,28 +10,21 @@
 
 <body>
     <button id="btn">发请求</button>
-    <script>
 
-        function doGET(url, 请求成功的处理函数) {
-            const xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        请求成功的处理函数(xhr.responseText)
-
-                    }
-                }
-            }
-            xhr.open('GET', url)
-            xhr.send()
-        }
-
+    <script src="./xhr.js"></script>
+    <script> 
         let btn = document.getElementById("btn")
+        let x = null;
+
         btn.onclick = function () {
-            doGET('http://127.0.0.1:8080/hello', function (请求的结果) {
+            function xxx(请求的结果) {
+                x = 请求的结果
                 console.log("异步响应结果", 请求的结果)
-            })
+            }
+            doGET('http://127.0.0.1:8080/hello', xxx)
         }
+
+        
     </script>
 </body>
 

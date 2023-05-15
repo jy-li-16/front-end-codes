@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // push：从后面插入
+        // pop：从后面弹出
+        // shift：从前面弹出
+        // unshift：从前面插入
+
+        // push/pop 比较快，shift/unshift 比较慢
+
+        Array.prototype.佳业push = function (x) {
+            this[this.length] = x;
+            this.length++;
+        }
+
+        let arr = ['a', 'b', 'c', 'd'];
+        console.log(arr);
+        let arr2 = [...arr, 666]
+        let arr3 = [666, ...arr]
+        console.log(arr2);
+        console.log(arr3);
+
+
+
+
+    </script>
+</body>
+</html>

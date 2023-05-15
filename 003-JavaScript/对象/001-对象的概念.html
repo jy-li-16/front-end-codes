@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Java；面向对象的语言
+        // JS：基于对象的语言
+
+        // Object 对象
+
+        // 创建一个对象 new Object()
+        let obj = new Object();
+
+        /*
+            new 的作用：
+                1. 创建一个空对象
+                2. 继承new后面构造函数的原型
+                3. this指向创建的对象，并调用构造函数
+                4. 返回对象
+        */
+
+        obj.name = "张三";
+        obj.age = 18;
+
+        console.log(obj)
+
+        delete obj.age;
+        console.log(obj)
+
+
+    </script>
+</body>
+</html>

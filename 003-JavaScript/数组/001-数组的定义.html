@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [1, 2, 3, 4, 5, 'a'];
+        console.log(arr);
+
+        var arr1 = [];
+        arr1.push(123);
+        console.log(arr1);
+        arr1[999] = 666;
+        console.log(arr1);
+
+        var arr2 = new Array(10);
+        console.log(arr2);
+
+        var arr3 = new Array(1, 2, 3);
+        console.log(arr3);
+
+        console.dir(Array);
+
+        var arr4 = Array.from("Hello World");
+        console.log(arr4)
+
+        /*
+            Array.from
+            Array.isArray()
+            Array.of
+        */
+
+        var arr5 = [..."Hello World"];
+        console.log(arr5)
+        
+        var arr6 = Array.of(10)
+        console.log(arr6)
+
+        var arr7 = new Array;
+        console.log(arr7)
+
+    </script>
+</body>
+</html>

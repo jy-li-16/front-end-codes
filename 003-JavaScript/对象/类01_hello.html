@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person {
+            xxx = 123
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            speak() {
+                console.log(`你好，我叫${this.name}, 我${this.age}岁了`)
+            }
+        }
+
+        class Man extends Person {
+            
+        }
+
+        let p = new Person("张三", 18);
+        p.speak()
+
+    </script>
+</body>
+</html>

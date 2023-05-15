@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function 缓存(func) {
+            let cache = {};
+            return function (x) {
+                if (x in cache) {
+                    // console.log("x = ", x, "找到缓存，直接使用")
+                    return cache[x];
+                } else {
+                    // console.log("x=", x, "没有缓存，进行计算")
+                    let result = func(x);
+                    cache[x] = result;
+                    return result;
+                }
+            }
+        }
+
+        function 平方(x) {
+            console.log("调用了平方函数", "x * x = ", x * x)
+            return x * x;
+        }
+
+        let 平方的缓存版本 = 缓存(平方);
+
+        console.log(平方的缓存版本(3))
+        console.log(平方的缓存版本(4))
+        console.log(平方的缓存版本(3))
+
+
+    </script>
+</body>
+
+</html>

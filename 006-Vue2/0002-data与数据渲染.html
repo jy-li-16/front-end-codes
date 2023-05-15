@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.9/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>123{{msg}}</h1>
+        <h1>{{msg.toUpperCase() + 'asdasd'}}</h1>
+
+        <!-- 通过指令 v-text -->
+        <h1 v-text="msg">123 --- {{x}}</h1>
+
+        <!-- 通过指令 v-html -->
+        <h1 v-html="msg">123</h1>
+
+        <h1>x = {{x}}</h1>
+        <h1>{{ x > 100 ? 'x大于100' : 'x小于或等于100' }}</h1>
+
+    </div>
+
+    <script>
+
+        // 虚拟DOM  树
+
+        // 初始化：写Vue选项 -> Vue解析模板 -> 虚拟DOM树 -> 生成真实DOM树 -> 渲染页面
+        // 更新：Vue -> 重新解析模板 -> 生成新的虚拟DOM -> 
+        //        新旧虚拟DOM比较，找出必须更新的真实DOM -> 更新必要的真实DOM
+
+        // diff算法：xxxxxxxxxx
+
+        // MVVM：
+        // M：Model --- data
+        // V：View --- HTML 、 DOM
+        // VM：Virtual Model - Vue虚拟DOM
+
+        // Vue核心：数据 -> 视图 -> 事件 -> 数据
+
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                msg: '<div style="color: red;">Hello World</div>',
+                x: 123
+            }
+        });
+
+        setInterval(() => app.x++, 1000)
+    </script>
+</body>
+
+</html>

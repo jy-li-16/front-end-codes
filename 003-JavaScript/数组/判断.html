@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [1, 3, 5, 7, 9];
+
+        // some：只要有一个条件符合，就返回真
+        let result = arr.some(x => x > 7)
+        console.log(result)
+
+        // every：所有元素都符合条件的时候，才返回真
+        let result2 = arr.every(x => x > 7)
+        console.log(result2);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        var intersection = function (nums1, nums2) {
+            let a = new Array(nums1.length)
+            for (i = 0; i < nums1.length; i++) {
+                if (nums2.some(x => x === nums1[i])) {
+                    a.push(nums1[i])
+                    console.log(a[i])
+                }
+            }
+            return a
+
+        }
+        nums1 = [1, 2, 2, 1]
+        nums2 = [2, 3]
+        let b = intersection(nums1, nums2)
+
+    </script>
+</body>
+
+</html>

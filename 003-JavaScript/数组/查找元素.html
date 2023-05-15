@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 9, 2, 6, 3, 8, 4, 3, 7, 5, 4];
+
+        debugger
+
+        // 返回所找到的元素的下标
+        // 从左到右，第一个找到的
+        let index = arr.indexOf(3);
+        arr.splice(index, 1)
+        //console.log(arr)
+        //console.log(index);
+
+        // 从后往前找
+        let index2 = arr.lastIndexOf(4);
+        console.log("index2:", index2);
+
+        let indexs = arr.findIndex(x => x === 3);
+        console.log(indexs);
+
+        let result = arr.find(x => x === 3);
+        console.log(result);
+
+        let persons = [
+            { name: '张三', age: 18 },
+            { name: '张三1', age: 18 },
+            { name: '张三2', age: 19 },
+            { name: '张三3', age: 18 },
+            { name: '张三4', age: 18 },
+        ];
+
+        let p = persons.find(x => x.age === 19);
+        console.log(p.name)
+
+
+    </script>
+</body>
+
+</html>

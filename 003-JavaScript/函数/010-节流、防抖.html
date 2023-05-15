@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">发请求</button>
+    <script>
+        let btn = document.getElementById("btn");
+
+
+        setTimeout(function () {
+
+        }, 5000)
+
+        function 发请求() {
+            console.log("发请求", Date.now());
+        }
+
+        function 防抖(func, time) {
+            let timerId = null;
+            return function () {
+                if (timerId) {
+                    console.log("防抖.......")
+                } else {
+                    func();
+                    timerId = setTimeout(function () {
+                        timerId = null
+                    }, time)
+                }
+            }
+        }
+
+        function 防抖_时间戳版本(func, time) {
+            let t = null;
+            return function() {
+                let now = Date.now();
+                if(!t || now-t>time) {
+                    t = now;
+                    func()
+                } else {
+                    console.log("防抖......")
+                }
+            }
+        }
+
+        function 防抖_jiaye版本(func,time) {
+            let a=1;
+            return function () {
+                if(a){
+                    console.log("请求成功")
+                    a=0;
+                    setTimeout(function () {
+                       a = 1
+                    }, time)
+                }
+                else{
+                    console.log("fangdou...")
+                }
+            }
+        }
+            
+        
+        let 防抖的发请求 = 防抖_jiaye版本(发请求, 2000)
+
+        btn.onclick = function () {
+            防抖的发请求();
+        }
+
+
+        
+
+    </script>
+</body>
+
+</html>

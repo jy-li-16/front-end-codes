@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            Promise 状态：
+                pending：   初始状态
+                fulfilled： 已解决
+                rejected：  已拒绝
+
+            创建一个Promise对象：
+                let p = new Promise(function(resolve, reject) {
+                    // ......
+                });
+
+                p.then(
+                    // 解决
+                    function (res) {},
+                    // 拒绝
+                    function (err) {},
+                );
+
+                p.then(function(res) {})
+                  .catch(function(err) {})
+
+        
+        */
+
+        function taskProcess(解决, 拒绝) {
+            setTimeout(function() {
+                解决(666)
+            }, 5000)
+        }
+
+        let p = new Promise(taskProcess)
+
+        // p.then(res => {
+        //     console.log("解决值", res)
+        // }).catch(err => {
+        //     console.log("拒绝值", err)
+        // });
+
+    </script>
+</body>
+
+</html>

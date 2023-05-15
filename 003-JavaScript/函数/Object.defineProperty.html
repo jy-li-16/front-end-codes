@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Object.defineProperty
+
+        let obj = { name: '张三' };
+
+        defineProp(obj, 'age', 18);
+
+
+        function defineProp(obj, name, initValue) {
+            let value = initValue;
+            Object.defineProperty(obj, name, {
+                get: function () {
+                    console.log('调用了', name, '的get方法')
+                    return value;
+                },
+                set: function (val) {
+                    console.log('调用了', name, '的set方法')
+                    value = val;
+                }
+            });
+        }
+
+
+
+
+        console.log(obj)
+
+    </script>
+</body>
+
+</html>

@@ -3,10 +3,13 @@ const cors = require('cors')
 
 const app = express()
 
-app.use(cors())
+// app.use(cors())
 
 app.get("/hello", (req, res) => {
-    res.send("Hello World")
+    console.log("请求进来了", "请求方式", req.method)
+    // res.header('Access-Control-Allow-Origin', '*');
+    // res.header('Access-Control-Allow-Methods', 'GET');
+    res.send("Hello World 123")
 })
 
 app.listen(8080, () => {

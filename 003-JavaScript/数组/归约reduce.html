@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [1, 3, 5, 7, 9];
+        // 数组.reduce( 处理器, 累计初始值=【第一个元素】 )
+        // 处理器(累计, 当前值, 当前索引, 所属数组)
+        function 处理器(累计, 当前值, 当前索引, 所属数组) {
+            累计 += 当前值;
+            return 累计
+        }
+
+        let result1 = arr.reduce(处理器, 0)
+        console.log("result1：" +result1)
+        
+        let result = arr.reduce((x, y) => x + y)
+        console.log(result)
+
+        // reduceRight 从后往前的版本
+
+
+    </script>
+</body>
+</html>

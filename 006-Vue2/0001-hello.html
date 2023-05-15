@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.9/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{x}}</h1>
+        <h1>{{ upper(msg) }}</h1>
+        <button v-on:click="handleClick">按钮</button>
+        <h1>{{person}}</h1>
+    </div>
+
+    <script>
+
+        // Vue全家桶：Vue、VueRouter、Vuex、Vue-CLI、。。。。
+
+        // 写模板、写Vue选项
+        // Vue根据选项解析模板
+        // Vue将结果渲染到页面上
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                x: 1,
+                msg: "hello world",
+                person: {
+                    name: '张三',
+                    age: 18
+                }
+            },
+            methods: {
+                upper(s) {
+                    return s.toUpperCase()
+                },
+                handleClick() {
+                    this.x++;
+                }
+            },
+            watch: {
+                x() {
+                    console.log('x变化了')
+                }
+            }
+        });
+
+        // 命令式：每一步具体的操作都有对应的描述
+        // let btn = document.getElementById("btn")
+        // btn.onclick = function () {
+        //     console.log("按钮被点击了")
+        // }
+    </script>
+</body>
+
+</html>

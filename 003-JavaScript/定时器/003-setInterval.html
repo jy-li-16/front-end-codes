@@ -42,6 +42,7 @@
             }
             timerId = setInterval(function() {
                 left += step;
+     
                 if(left + 200 >= document.body.clientWidth || left <= 0) {
                     step = -step;
                 }
