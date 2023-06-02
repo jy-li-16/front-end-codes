@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.9/vue.js"></script>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .bg-green {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1 :class="'red bg-green'">你好</h1>
+        <h1 :class="classArray">你好</h1>
+        <h1 :class="classObj">你好</h1>
+        <button v-on:click="classObj.red = !classObj.red">{{classObj.red ? '关闭' : '打开'}}红色字体</button>
+        <button v-on:click="classObj['bg-green'] = !classObj['bg-green']">{{classObj['bg-green'] ? '关闭' :
+            '打开'}}绿色背景</button>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                classArray: ['red', 'bg-green'],
+                classObj: {
+                    red: false,
+                    'bg-green': false
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

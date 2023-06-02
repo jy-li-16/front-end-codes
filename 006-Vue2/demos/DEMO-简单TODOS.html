@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.9/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <input type="text" v-model="input">
+            <button @click="handleAdd">添加待办</button>
+            <button @click="handleClearFinish">清除已完成</button>
+        </div>
+        <div>
+            <ul>
+                <li v-for="todo in todos" :key="todo.id">
+                    <input type="checkbox" v-model="todo.finish">
+                    <span v-if="!todo.edit" :style="{textDecoration: todo.finish ? 'line-through' : ''}">{{todo.title}}</span>
+                    <input type="text" v-if="todo.edit" v-model="todo.title">
+                    <button v-if="!todo.edit" @click="todo.edit = true">编辑</button>
+                    <button v-if="todo.edit">保存</button>
+                    <button v-if="!todo.edit">删除</button>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h1>总待办：{{total}}</h1>
+            <h1>未完成：{{notFinish}}</h1>
+            <h1>已完成：{{finish}}</h1>
+        </div>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                input: '',
+                todos: [],
+            },
+            methods: {
+                handleAdd() {
+                    if(!this.input.trim()) {
+                        alert("请输入待办内容！");
+                        return;
+                    }
+                    let todo = {
+                        id: Date.now(),
+                        title: this.input,
+                        finish: false,
+                        edit: false
+                    };
+                    this.todos.unshift(todo);
+                    this.input = '';
+                },
+                handleClearFinish () {
+                    this.todos = this.todos.filter(todo => !todo.finish)
+                }
+            },
+            computed: {
+                total() {
+                    return this.todos.length;
+                },
+                finish() {
+                    return this.todos.filter(todo => todo.finish).length;
+                },
+                notFinish() {
+                    return this.total - this.finish
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>

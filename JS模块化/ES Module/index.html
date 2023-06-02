@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script type="module" src="./main.js"></script> -->
+    <script type="module">
+        // 默认导入
+        // import XXX from './main.js'
+        // 部分导入
+        import { a, default as XXX } from './main.js'
+
+        // import * as ALL from './main.js'
+
+        console.log('XXX', XXX)
+        // console.log("ALL", ALL)
+        // console.log('a', a)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://www.jq22.com/jquery/vue2.6.10.min.js"></script>
+
+  <style>
+    .container {
+      border: 1px solid #ccc;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app">
+  <input type="text" v-model="input"> 请填写数据，以逗号分隔
+  <button @click="setArr">设置数据</button>
+  <button @click="startSort">开始排序</button>
+  <div>
+    <span>最小值:{{minValue}}</span>
+    <span>最大值:{{maxValue}}</span>
+  </div>
+
+  <div class="container">
+    <div v-for="item in arr" :key="item.id" :style="getItemStyle(item)">{{item.value}}</div>
+  </div>
+
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      input: '7,1,18,13,11,9,21,7,6,4,5,8,15,13,17,19,12',
+      arr: [],
+      maxHeight: 400,
+
+      taskList: [],
+    },
+    methods: {
+      setArr() {
+        let values = this.input.split(",")
+        this.arr = values.map(value => {
+          let item = {};
+          item.id = `${Math.random()}-${Date.now()}`
+          item.value = +value;
+          item.color = 'green'
+          return item;
+        })
+      },
+      getItemStyle(item) {
+        let ratio = (item.value - this.minValue) / (this.maxValue - this.minValue);
+        return {
+          height: (this.maxHeight * ratio + 20) + 'px',
+          width: '40px',
+          border: '1px solid #888',
+          display: 'inline-block',
+          marginRight: '5px',
+          verticalAlign: 'bottom',
+          backgroundColor: item.color
+        }
+      },
+      // 开始排序
+      startSort() {
+        console.log("开始排序")
+        // 浅拷贝一份数组
+        let arr = [...this.arr].map(x => x.value);
+        for (let i = 0; i < arr.length - 1; i++) {
+          for (let j = 0; j < arr.length - i - 1; j++) {
+            // 添加一个compare任务，表示两个数字正在比较
+            this.taskList.push({type: 'compare', index1: j, index2: j + 1})
+            if (arr[j] > arr[j + 1]) {
+              // 添加错误标注任务
+              this.taskList.push({type: 'error', index1: j, index2: j + 1})
+              // 添加一个交换任务
+              this.taskList.push({type: 'exchange', index1: j, index2: j + 1})
+              // 交换完成恢复任务
+              this.taskList.push({type: 'pass', index1: j, index2: j + 1})
+              // 交换 j 和 j+1
+              let t = arr[j]
+              arr[j] = arr[j + 1]
+              arr[j + 1] = t
+            } else {
+              // 添加一个通过任务
+              this.taskList.push({type: 'pass', index1: j, index2: j + 1})
+            }
+          }
+        }
+
+        // 生成执行定时器
+        this.taskList.forEach((task, index) => {
+          let {type, index1, index2} = task;
+          setTimeout(() => {
+            // 判断任务类型
+            if (type == 'compare') {
+              // 将要比较的两个数变成蓝色
+              this.arr[index1].color = 'blue';
+              this.arr[index2].color = 'blue';
+            } else if (type == 'error') {
+              // 将两个要交换的数字变成红色
+              this.arr[index1].color = 'red';
+              this.arr[index2].color = 'red';
+            } else if (type == 'exchange') {
+              let t = this.arr[index1]
+              this.arr[index1] = this.arr[index2]
+              this.arr[index2] = t
+            } else if (type == 'pass') {
+              // 将通过的重新设置成绿色
+              this.arr[index1].color = 'green';
+              this.arr[index2].color = 'green';
+            }
+            this.$forceUpdate()
+          }, (index + 1) * 100)
+        });
+      }
+    },
+    computed: {
+      minValue() {
+        if (this.arr.length == 0) {
+          return 0;
+        } else {
+          let min = this.arr[0].value;
+          this.arr.forEach(item => {
+            if (item.value < min) {
+              min = item.value;
+            }
+          })
+          return min;
+        }
+      },
+      maxValue() {
+        if (this.arr.length == 0) {
+          return 0;
+        } else {
+          let max = this.arr[0].value;
+          this.arr.forEach(item => {
+            if (item.value > max) {
+              max = item.value;
+            }
+          })
+          return max;
+        }
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

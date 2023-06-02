@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.9/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="handleDelete">删除</button>
+        <h1 v-for="book in books" :key="book">
+            {{ book }} -- {{index}}
+            ---
+            <input type="text">
+        </h1>
+
+
+<!--
+    v-for=" 数组元素 in 数组 "
+    v-for=" (元素, 下标) in 数组 "
+    v-for="i in 10"
+    v-for=" (属性值, 属性名) in 对象 "
+-->
+
+        <hr>
+        <h1 v-for="(value, key) in person" :key="key">{{key}}: {{value}}</h1>
+
+        <!-- 这种是从1开始的 -->
+        <h1 v-for="x in 100">我爱你 -- {{x}}</h1>
+
+
+        <hr>
+        <template v-for="x in 10">
+            <h1>{{x}}</h1>
+            <h2>{{x}}</h2>
+        </template>
+
+
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                books: ["西游记", "红楼梦", "三国演义", "水浒传"],
+                person: {
+                    name: '张三',
+                    age: 18,
+                    sex: "男",
+                    school: "清湖大学"
+                }
+            },
+            methods: {
+                handleDelete() {
+                    this.books.splice(1, 1);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

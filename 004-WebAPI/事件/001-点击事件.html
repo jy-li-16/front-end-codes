@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="btn">按钮</button>
+
+<script>
+  let btn = document.getElementById('btn');
+
+  // btn.onclick = function() {
+  //
+  // }
+
+  function handleClcik1 () {
+      console.log("按钮被点击了111")
+  }
+
+  function handleClcik2 () {
+      console.log("按钮被点击了222")
+  }
+
+  btn.addEventListener('click', handleClcik1)
+  btn.addEventListener('click', handleClcik2)
+
+
+</script>
+
+</body>
+</html>

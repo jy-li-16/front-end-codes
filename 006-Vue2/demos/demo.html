@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.9/vue.js"></script>
+    <style>
+        #app {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .let {
+            font-size: 120px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" :style="{backgroundColor: count > 12 ? '#FFF' : '#000'}">
+        <div class="let" :style="{color: count > 12 ? '#000' : '#FFF'}">{{count}}</div>
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                count: 0,
+            },
+        });
+
+        setInterval(() => {
+            app.count++;
+            if(app.count == 25) {
+                app.count = 0;
+            }
+        }, 100);
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.9/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model.number="r">
+        <input type="text" v-model.number="g">
+        <input type="text" v-model.number="b">
+        <h1 style="color: rgb(185, 21, 21);">HELLOWORLD</h1>
+        <h1 :style="'color:' + color + ';'">HELLOWORLD</h1>
+        <h1 :style="{color: color}">HELLOWORLD</h1>
+        <!-- <h1 :style="[]">HELLOWORLD</h1> -->
+        <h1 :style="getStyle()">HELLOWORLD</h1>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                r: 0,
+                g: 0,
+                b: 0
+            },
+            methods: {
+                getStyle() {
+                    return {
+                        color: `rgb(${this.r}, ${this.g}, ${this.b})`
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

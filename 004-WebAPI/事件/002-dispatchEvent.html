@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    #box {
+      width: 200px;
+      height: 200px;
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+
+<div id="box">
+  <button id="btn">点击一下</button>
+</div>
+
+<script>
+let box = document.getElementById('box');
+let btn = document.getElementById('btn')
+
+btn.addEventListener('click', function() {
+  console.log("按钮被点击了")
+})
+
+btn.addEventListener('click', function() {
+  console.log("按钮被点击了aaaaaaaaaaaaaaaa")
+})
+
+box.addEventListener('click', function() {
+  btn.click()
+})
+
+
+
+</script>
+
+</body>
+</html>

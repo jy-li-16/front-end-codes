@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .father {
+            border: 1px solid red;
+        }
+
+        .box {
+            border: 1px solid green;
+            width: 100px;
+            height: 100px;
+
+            float: left;
+        }
+
+        .xxx {
+            /* 清除浮动（清除浮动的影响） */
+            /*
+                left：清除左侧元素浮动带来的影响
+                right：清除右侧元素浮动带来的影响
+                both：清除两侧元素浮动带来的影响
+                none：默认，不清除浮动
+            */
+            clear: both;
+
+            border: 1px solid blue;
+            width: 100px;
+            height: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="father">
+    <div class="box"></div>
+    <div class="xxx"></div>
+    A
+
+
+
+    B
+</div>
+</body>
+</html>

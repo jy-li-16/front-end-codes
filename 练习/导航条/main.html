@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul li {
+            list-style: none;
+        }
+
+        .nav {
+
+        }
+
+        .nav > li {
+            display: inline-block;
+            position: relative;
+            background-color: skyblue;
+            padding: 10px 20px;
+        }
+
+        .nav > li > ul {
+            display: none;
+        }
+
+        .nav > li > span:hover + ul {
+            display: block;
+            width: 100px;
+
+            position: absolute;
+            top: 30px;
+            left: -100px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<ul class="nav">
+  <li>首页</li>
+  <li>
+      <span>菜单1</span>
+      <ul>
+          <li>子菜单1</li>
+          <li>子菜单2</li>
+          <li>子菜单3</li>
+      </ul>
+  </li>
+  <li>
+      <span>菜单2</span>
+      <ul>
+          <li>子菜单1</li>
+          <li>子菜单2</li>
+          <li>子菜单3</li>
+      </ul>
+  </li>
+  <li>菜单3</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box2 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<div id="box">123</div>
+
+<div id="box2"></div>
+
+<button onclick="removeBox()">移除box</button>
+<button onclick="moveBoxToBox2()">将123移入box2</button>
+<button onclick="copyBox()">复制一个box</button>
+
+<script>
+
+    // 命令式：整个操作DOM的逻辑要一行行写
+
+    // Vue：声明式，一般不直接操作DOM，而是操作数据，Vue根据数据的变化，帮你去操作DOM
+
+    let box = document.getElementById('box');
+    let box2 = document.getElementById('box2');
+
+    function removeBox() {
+        // document.body.removeChild(box);
+        if(box.parentNode) {
+            box.parentNode.removeChild(box);
+        }
+    }
+
+    function moveBoxToBox2() {
+        box2.appendChild(box)
+    }
+
+    function copyBox() {
+        // 加上参数 true，是深拷贝，默认是浅拷贝
+        let newBox = box.cloneNode(true);
+        document.body.appendChild(newBox)
+    }
+
+    /*
+        在指定节点之前插入：
+            node.insertBefore(要插入的节点, 参照节点)
+
+        节点替换：
+            node.replaceChild(新节点, 旧节点);
+
+
+     */
+
+
+</script>
+</body>
+</html>

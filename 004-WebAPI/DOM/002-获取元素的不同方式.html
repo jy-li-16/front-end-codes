@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="box" class="box" name="lalala">  </div>
+
+
+<script src="./JY.js"></script>
+<script>
+
+    let e1 = document.getElementById("box");
+    let e2 = document.getElementsByTagName("div");
+    let e3 = document.getElementsByClassName("box");
+    let e4 = document.getElementsByName("lalala");
+
+    // 接受一个 CSS选择器，返回第一个找到的元素
+    let e5 = document.querySelector("#box");
+    // 接受一个CSS选择器，返回所有找到的元素
+    let e6 = document.querySelectorAll("");
+
+    let e7 = JY.q("#box");
+    let e8 = JY.qs(".box");
+
+</script>
+
+</body>
+</html>

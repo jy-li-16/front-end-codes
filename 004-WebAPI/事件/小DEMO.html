@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myDiv" style="position: absolute; width: 100px; height: 100px; background-color: red;">
+    <button id="btn">6575</button>
+    </div>
+<script>
+let btn = document.getElementById('btn');
+
+btn.onclick = function() {
+    divTop=divTop+100;
+
+}
+
+
+    
+// 获取屏幕的宽度和高度
+let screenWidth = window.innerWidth || document.documentElement.clientWidth;
+let screenHeight = window.innerHeight || document.documentElement.clientHeight;
+
+// 获取 div 元素
+let div = document.getElementById('myDiv');
+
+// 设置 div 元素的位置
+let divWidth = div.offsetWidth;
+let divHeight = div.offsetHeight;
+let divTop = (screenHeight - divHeight) / 2;
+let divLeft = (screenWidth - divWidth) / 2;
+div.style.top = divTop + 'px';
+div.style.left = divLeft + 'px';
+</script>
+</body>
+</html>

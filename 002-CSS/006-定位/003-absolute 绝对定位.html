@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    .father {
+      width: 200px;
+      height: 200px;
+      border: 1px solid red;
+
+      position: fixed;
+      top: 100px;
+      left: 100px;
+    }
+
+    .son {
+      width: 100px;
+      height: 100px;
+      border: 1px solid green;
+
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+  /*
+    绝对定位是
+    相对于外层第一个具有非静态定位属性的祖先元素进行定位
+    如果找不到任何非静态定位元素，则最后 == 静态定位
+  */
+
+  /*
+    子绝父相
+  */
+  </style>
+</head>
+<body>
+
+<div class="father">
+  <div class="son"></div>
+</div>
+
+</body>
+</html>

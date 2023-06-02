@@ -11,30 +11,17 @@
 
 <body>
     <div id="app">
-        <input type="text" v-model.number="x">
-        <h1>x = {{x}}</h1>
+        <h1 v-bind:title="msg">HELLOWORLD</h1>
 
-        <h1 v-if="x > 0">大于0</h1>
-        <h1 v-if="x < 0">小于0</h1>
-        <h1 v-if="x == 0">等于0</h1>
-
-<!--        v-else-if-->
-<!--        v-else-->
-
-        <h1 v-show="x > 0">大于0（v-show）</h1>
-
-        <hr>
-
-        <h1 v-if="2 > 3">2 &gt; 3</h1>
-        <h1 v-else>2 &le; 3</h1>
-
+        <!-- 语法糖 -->
+        <h1 :title="msg">HELLOWORLD</h1>
     </div>
 
     <script>
         let app = new Vue({
             el: '#app',
             data: {
-                x: 0,
+                msg: "你好啊"
             }
         })
     </script>

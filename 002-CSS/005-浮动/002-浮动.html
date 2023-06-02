@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正常文档流</title>
+    <style>
+        div {
+            width: 100px;
+            height: 80px;
+            border: 1px solid red;
+        }
+
+        #box1 {
+            float: left;
+        }
+
+        #box2 {
+            float: left;
+        }
+
+        #box3 {
+            /* 浮动 */
+            /*
+                浮动的元素，会脱离正常文档流
+            */
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div id="box1">1</div>
+<div id="box2">2</div>
+<div id="box3">3</div>
+</body>
+</html>

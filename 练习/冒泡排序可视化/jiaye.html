@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.9/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="inputArray" placeholder="请输入数组，用逗号分隔" />
+        <button @click="convertToArray()">转换为数组</button>
+        <button @click="setArray()">设置</button>
+        <div id="container"></div>
+    </div>
+   
+    <script>
+        var container = document.getElementById("container");
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                
+                inputArray: ''
+            },
+            methods: {
+                convertToArray: function () {
+                    var arr = this.inputArray.split(",");
+                    for (var i = 0; i < arr.length; i++) {
+                        arr[i] = parseInt(arr[i]);
+                    }
+                    console.log(arr); //输出转换后的数组
+                },
+                //setArray:function(){
+
+                }
+
+            
+        })
+    
+    </script>
+</body>
+
+</html>

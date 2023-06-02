@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.9/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model.number="x">
+        <h1>x = {{x}}</h1>
+        <h1>x * x = {{ x2 }}</h1>
+        <button @click="startWatchX">开始监听x</button>
+        <button @click="stopWatchX">停止监听x</button>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                x: 0,
+                x2: '',
+                obj: {
+                    name: '张三',
+                    age: 18
+                },
+
+                cancelWatchX: null
+            },
+            methods: {
+                // 开始监听x
+                startWatchX() {
+                    // expOrFn 路径表达式或函数
+                    console.log("开始监听x")
+                    this.cancelWatchX = this.$watch(
+                        // 'x',
+                        () => this.x,
+                        val => {
+                            console.log("x发生了变化", val)
+                        }, {}
+                    )
+                },
+                // 停止监听x
+                stopWatchX() {
+                    console.log("停止监听x")
+                    this.cancelWatchX()
+                }
+            },
+            computed: {
+                // x2() {
+                //     return this.x * this.x
+                // }
+            },
+            watch: {
+                // 简写方式
+                // x(newValue, oldValue) {
+                //     console.log("x变化了", newValue, oldValue)
+                // }
+
+                // 完整写法
+                // x: {
+                //     immediate: true,
+                //     handler(newValue, oldValue) {
+                //         if(this.x < 0) {
+                //             alert("x不要小于0")
+                //             return;
+                //         }
+                //         this.x2 = this.x * this.x;
+                //     }
+                // },
+
+                // // 浅层监听
+                // obj(newValue, oldValue) {
+                //     console.log("obj变化了", newValue, oldValue)
+                // }
+
+                // 指定具体的属性监听（提供一个属性表达式）
+                // 'obj.age': function (newValue, oldValue) {
+                //     console.log("obj.age", newValue, oldValue)
+                // }
+
+
+                // obj: {
+                //     deep: true, // 开启深度监听
+                //     immediate: true, // 是否在组件加载完之后立刻监听
+                //     handler(newValue, oldValue) {
+                //         console.log("obj变化了", newValue, oldValue)
+                //     }
+                // }//深度监听这个oldvalue与newvalue如果同时打印，会一样。指定具体的属性监听则不会。
+            },
+            created: function () {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

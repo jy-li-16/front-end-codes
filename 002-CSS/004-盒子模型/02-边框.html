@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            /* border: 1px solid red; */
+            /* border-width: 1px;
+            border-style: solid;
+            border-color: red; */
+
+            /* border-方位 */
+            border-top: 1px solid red;
+
+            /* border-属性 */
+            border-style: dashed;
+
+            /* border-方位-属性 */
+            border-right-color: blue;
+            border-left-width: 1px;
+
+            /* 边框圆角 */
+            /* border-radius: 10px; */
+            border-radius: 50%;
+
+
+            text-align: center;
+            line-height: 200px;
+            font-size: 40px;
+            font-family: "隶书";
+            color: rgb(83, 234, 234);
+            transition: all 1s;
+            /* transform: translate(-50%, -50%); */
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+
+        .box:hover {
+            background-color: pink;
+        }
+
+        .box:nth-child(1) {
+            animation: rotate1 2s infinite;
+        }
+
+        .box:nth-child(2) {
+            animation: rotate2 2s infinite;
+        }
+
+        @keyframes rotate1 {
+            from {
+                transform: rotate(0deg) translate(-50%, -50%);
+            }
+
+            to {
+                transform: rotate(360deg) scale(1.5) translate(-50%, -50%);
+            }
+        }
+
+        @keyframes rotate2 {
+            from {
+                transform: rotate(-90deg) translate(-50%, -50%);
+            }
+
+            to {
+                transform: rotate(-450deg) translate(-50%, -50%);
+            }
+        }
+
+        /* #box:hover {
+            background-color: pink;
+            transition: all 1s;
+            transform: rotate(360deg);
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="box">好好学习</div>
+    <div class="box" style="transform: rotate(90deg)">天天向上</div>
+</body>
+
+</html>

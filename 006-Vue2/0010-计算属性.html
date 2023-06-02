@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.9/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="firstName">
+        <input type="text" v-model="lastName">
+
+        <h1>{{ getFullName() }}</h1>
+        <h1>{{ getFullName() }}</h1>
+
+        <h1>{{ fullName2 }}</h1>
+        <h1>{{ fullName2 }}</h1>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                firstName: '张',
+                lastName: '三',
+            },
+            methods: {
+                getFullName() {
+                    console.log("调用了一次 getFullName")
+                    return this.firstName + this.lastName;
+                },
+            },
+            computed: {
+                // fullName() {
+                //     console.log("调用了一次 fullName")
+                //     return this.firstName + this.lastName;
+                // },
+                fullName2: {
+                    get() {
+                        console.log("调用了一次 fullName2 的 get 方法")
+                        return this.firstName + this.lastName;
+                    },
+                    set(val) {
+                        this.firstName = val.slice(0, 1);
+                        this.lastName = val.slice(1);
+                        console.log("调用了一次 fullName2 的 set 方法")
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

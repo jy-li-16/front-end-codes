@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: fixed;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box"></div>
+
+    <script>
+        
+        let isPress = false;
+        let firstx = 0;
+        let firsty = 0;
+        let lastx = 0;
+        let lasty = 0;
+        let div = document.getElementById("box");
+       
+        let rect = div.getBoundingClientRect();
+       let centerX = rect.x + rect.width / 2;
+       let centerY = rect.y + rect.height / 2;
+       
+        div.style.top=centerY+lasty-firsty+ 'px';
+        div.style.left=centerX+lastx-firstx+ 'px';
+        //当方块被点击
+        box.onclick = function (event) {
+        }
+
+        // 当鼠标按下
+        box.onmousedown = function (event) {
+            isPress = true;
+            console.log("鼠标按下", event.x, event.y)
+            firstx = event.x;
+            firsty = event.y;
+            console.log("鼠标初始x", event.x, "鼠标初始y", event.y)
+        }
+
+        // 当鼠标移动
+        box.onmousemove = function (event) {
+            if (isPress) {
+                //console.log("鼠标按下并且在移动", event.x, event.y)
+            }
+        }
+
+        // 当鼠标抬起
+        box.onmouseup = function (event) {
+            isPress = false
+            lastx = event.x;
+            lasty = event.y;
+            console.log("鼠标抬起", event.x, event.y)
+            console.log("鼠标终结x", event.x, "鼠标终结y", event.y)
+            
+        div.style.top=centerY+lasty-firsty+ 'px';
+        div.style.left=centerX+lastx-firstx+ 'px';
+        }
+
+    </script>
+
+</body>
+
+</html>

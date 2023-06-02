@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .app {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<div class="app"></div>
+<script>
+
+    let div = document.querySelector('.app')
+    div.isPress = false; // 记录鼠标是否按下
+    let dx = 0; // 设置鼠标按下时，在页面中的水平偏移
+    let dy = 0; // 设置鼠标按下时，在页面中的垂直偏移
+    let x = 0; // div 在页面中的水平偏移
+    let y = 0; // div 在页面中的垂直偏移
+
+    // 当鼠标按下的时候
+    div.onmousedown = function(event) {
+        div.isPress = true; // 记录鼠标按下
+        // 记录开始拖动的位置
+        dx = event.pageX;
+        dy = event.pageY;
+        // 记录原来的位置
+        x = div.offsetLeft;
+        y = div.offsetTop;
+    }
+
+    // 当鼠标移动的时候
+    div.onmousemove = function(event) {
+        if(div.isPress) { // 如果鼠标在div上滑动的时候，isPress是按下的状态，即为拖动
+            // 记录拖动到的位置
+            let px = event.pageX;
+            let py = event.pageY;
+            // 计算最终的位置
+            div.style.left = px - (dx - x) + 'px';
+            div.style.top = py - (dy - y) + 'px';
+        }
+    }
+
+    // 当鼠标抬起的时候
+    div.onmouseup = function (event) {
+        div.isPress = false;
+    };
+
+</script>
+</body>
+</html>
+

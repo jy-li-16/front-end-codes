@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="father">
+  <div id="box">
+      <h1>你好啊</h1>
+      <h1>lalala</h1>
+      <h1>hahahha</h1>
+  </div>
+</div>
+
+<script>
+  /*
+      element.parentElement
+   */
+
+  let box = document.getElementById('box')
+
+  // 获取父元素
+  console.log(box.parentElement)
+
+  // 获取子元素
+  console.log(box.children);
+
+  // 第一个子元素
+  console.log(box.firstElementChild);
+
+  // 最后一个子元素
+  console.log(box.lastElementChild);
+
+</script>
+</body>
+</html>

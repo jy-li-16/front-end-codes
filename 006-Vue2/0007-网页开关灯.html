@@ -7,35 +7,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.9/vue.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #app {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="app">
-        <input type="text" v-model.number="x">
-        <h1>x = {{x}}</h1>
-
-        <h1 v-if="x > 0">大于0</h1>
-        <h1 v-if="x < 0">小于0</h1>
-        <h1 v-if="x == 0">等于0</h1>
-
-<!--        v-else-if-->
-<!--        v-else-->
-
-        <h1 v-show="x > 0">大于0（v-show）</h1>
-
-        <hr>
-
-        <h1 v-if="2 > 3">2 &gt; 3</h1>
-        <h1 v-else>2 &le; 3</h1>
-
+    <div id="app" :style="{backgroundColor: open ? '#FFF' : '#000'}">
+        <button v-on:click="open = !open">{{open ? '关灯' : '开灯'}}</button>
     </div>
 
     <script>
         let app = new Vue({
             el: '#app',
             data: {
-                x: 0,
-            }
+                open: false,
+            },
         })
     </script>
 </body>

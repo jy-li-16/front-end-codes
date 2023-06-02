@@ -11,30 +11,26 @@
 
 <body>
     <div id="app">
-        <input type="text" v-model.number="x">
-        <h1>x = {{x}}</h1>
-
-        <h1 v-if="x > 0">大于0</h1>
-        <h1 v-if="x < 0">小于0</h1>
-        <h1 v-if="x == 0">等于0</h1>
-
-<!--        v-else-if-->
-<!--        v-else-->
-
-        <h1 v-show="x > 0">大于0（v-show）</h1>
-
-        <hr>
-
-        <h1 v-if="2 > 3">2 &gt; 3</h1>
-        <h1 v-else>2 &le; 3</h1>
-
+        <h1>{{arr}}</h1>
+        <button v-on:click="handleUpdate">修改</button>
     </div>
 
     <script>
+        #app {
+            width: document.getwidth;
+            height: document.get;
+        }
         let app = new Vue({
             el: '#app',
             data: {
-                x: 0,
+                arr: ['a', 'b', 'c']
+            },
+            methods: {
+                handleUpdate() {
+                    // this.arr.push(123);
+                    this.arr = [...this.arr, 123]
+                    console.log(this.arr)
+                }
             }
         })
     </script>
